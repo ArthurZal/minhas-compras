@@ -10,7 +10,7 @@
     --background-secondary: #FFFFFF;
 
     --bg-color-brand: #CA3884;
-    --bg-color-brand-hover: #A5526CB;
+    --bg-color-brand-hover: #A52C6B;
     --bg-color-danger: #C93847;
 
     --content-primary: #080B12;
@@ -24,12 +24,77 @@
     --font-family-sans: 'Inter', system-ui, sans-serif;
     --font-weight-base: 400;
     --font-weight-medium: 500;
-    --font-weight-bold: 700;
+    --font-weight-bold: 800;
 
     --font-size-small: 0.875rem;
     --font-size-base: 1rem;
     --font-size-large: 1.5rem;
 
                   
-}       
+}     
+
+html {
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-base);
+    font-size: var(--font-size-base);
+    line-height: 1.5rem;
+}
+       
+body {
+    background-color: var(--background-primary);
+}
+
+h1 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+}
+
+a {
+    text-decoration: none;
+    color: var(--bg-color-brand);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    margin-bottom: 1rem;
+    gap: 12px;
+
+    width: auto;
+    height: 57px;
+
+    background: #FFFFFF;
+    border-radius: 12px;
+
+ 
+}
+
+
+@media (width >= 80rem) {
+    form {
+        flex-direction: row;
+    }
+
+    form .text-field {
+        flex: 2;
+    }
+
+    form .btn {
+        flex: 1;
+    }
+
+}
 
