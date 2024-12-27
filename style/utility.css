@@ -50,6 +50,11 @@
     background: var(--bg-color-brand-hover);
 }
 
+.list-item-effect {
+    text-decoration: line-through;
+    color: var(--content-tertiary);
+}
+
 
 
 @media (width >= 80rem) {
