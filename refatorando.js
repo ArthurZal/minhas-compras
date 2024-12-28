@@ -44,6 +44,7 @@ function createNewItem(itemName) {
 
     const deleteButton = document.createElement('button')
     deleteButton.innerText = 'Delete'
+    deleteButton.addEventListener('click', deleteButtonClick)
 
     li.appendChild(checkbox)
     li.appendChild(span)
@@ -61,6 +62,34 @@ function checkboxChange(event) {
     } else {
         span.classList.remove('list-item-effect')
     }
+
+
+}
+
+function deleteButtonClick(event) {
+    const listItem = event.target.closest('li')
+
+    if(listItem) {
+        listItem.remove()
+        messageDeletedItem()
+    }
+}
+
+function messageDeletedItem() {
+    const divContainer = document.querySelector('.container')
+    
+    const boxMessage = document.createElement('p')
+    boxMessage.textContent = "Item removido"
+
+    const closeButton = document.createElement('button')
+    closeButton.textContent = "X"
+    closeButton.addEventListener('click', function() {
+        divContainer.removeChild(boxMessage)
+    })
+
+    boxMessage.appendChild(closeButton)
+
+    divContainer.appendChild(boxMessage)
 
 
 }
