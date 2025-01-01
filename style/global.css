@@ -45,7 +45,7 @@ body {
 }
 
 h1 {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-large);
     font-weight: var(--font-weight-bold);
 }
 
