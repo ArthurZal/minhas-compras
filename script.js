@@ -4,9 +4,9 @@ function initializeShoppingList() {
     const list = document.querySelector("ul")
     const inputItem = document.querySelector("#text-item")
 
-    if(!form || !list || !inputItem) {
-        console.log("Error initialing the shopping list. Check the HTML structure of the page.")
-        return;
+    if (!form || !list || !inputItem) {
+        return console.log("Error initialing the shopping list. Check the HTML structure of the page.")
+
     }
 
     form.addEventListener("submit", handleFormSubmit)
@@ -14,22 +14,23 @@ function initializeShoppingList() {
 }
 
 function handleFormSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     const inputItem = document.querySelector("#text-item")
     const list = document.querySelector("ul")
-    const itemName =  inputItem.value.trim()
+    const itemName = inputItem.value.trim()
 
-    if(!itemName) {
-        alert("Erro ao adicionar novo item. Verifique se os campos foram preenchidos corretamente.")
-        return;
+    if (!itemName) {
+        alert("Erro ao adicionar novo item. Verifique se o campo foi preenchidos corretamente.")
+        inputItem.focus()
+        return
     }
 
     const newListItem = createNewItem(itemName)
     list.appendChild(newListItem)
 
     inputItem.value = ''
-    
+
 }
 
 function createNewItem(itemName) {
@@ -54,22 +55,18 @@ function createNewItem(itemName) {
 }
 
 function checkboxChange(event) {
-    const span = event.target.closest('li')?.querySelector('span')
+    const listItem = event.target.closest('li')?.querySelector('span')
 
-    if(event.target.checked) {
-        span.classList.add('list-item-effect')
-    
-    } else {
-        span.classList.remove('list-item-effect')
-    }
-
+    event.target.checked
+        ? listItem.classList.add('list-item-effect')
+        : listItem.classList.remove('list-item-effect')
 
 }
 
 function deleteButtonClick(event) {
     const listItem = event.target.closest('li')
 
-    if(listItem) {
+    if (listItem) {
         listItem.remove()
         messageDeletedItem()
     }
@@ -78,7 +75,7 @@ function deleteButtonClick(event) {
 function messageDeletedItem() {
     const divContainer = document.querySelector('.container')
 
-    if(!divContainer) {
+    if (!divContainer) {
         console.log('Erro ao buscar elemento. Verifique a estrutur HTML da página')
         return;
     }
@@ -96,9 +93,9 @@ function messageDeletedItem() {
     const closeButton = document.createElement('button')
     closeButton.classList.add('icon')
 
-    
-    closeButton.addEventListener('click', function() {
-        divContainer.removeChild(boxMessage)
+
+    closeButton.addEventListener('click', function () {
+        boxMessage.remove();
     })
 
     boxMessage.appendChild(alertIcon)
